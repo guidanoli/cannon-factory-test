@@ -1,0 +1,17 @@
+name = 'counter-factory'
+version = '0.0.1'
+description = 'my silly counter factory package'
+
+[deploy.CounterFactory]
+artifact = 'CounterFactory'
+create2 = true
+salt = '<%= zeroHash %>'
+ifExists = 'continue'
+
+[invoke.newCounter]
+target = 'CounterFactory'
+func = 'newCounter'
+args = []
+factory.Counter.artifact = 'Counter'
+factory.Counter.event = 'NewCounter'
+factory.Counter.arg = 0
